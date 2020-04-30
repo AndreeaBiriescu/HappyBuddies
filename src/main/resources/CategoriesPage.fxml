@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CategoriesPageController">
+<AnchorPane prefHeight="900" prefWidth="1500" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CategoriesPageController">
    <children>
-      <Button layoutX="268.0" layoutY="185.0" mnemonicParsing="false" text="Button" />
+      <ImageView fitHeight="900.0" fitWidth="1500.0" layoutX="608.0" layoutY="341.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Images/background1.jpg" />
+         </image>
+      </ImageView>
+      <Button contentDisplay="TOP" layoutX="232.0" layoutY="173.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" text="Pets" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="50.0">
+         <graphic>
+            <ImageView fitHeight="275.0" fitWidth="500.0">
+               <image>
+                  <Image url="@Images/pets1.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="36.0" />
+         </font></Button>
+      <Button contentDisplay="TOP" layoutX="859.0" layoutY="76.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" text="Food" textOverrun="LEADING_ELLIPSIS" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0">
+         <graphic>
+            <ImageView fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/food.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="36.0" />
+         </font></Button>
+      <Button contentDisplay="TOP" layoutX="242.0" layoutY="183.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" text="Toys" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="100.0">
+         <graphic>
+            <ImageView fitHeight="275.0" fitWidth="500.0">
+               <image>
+                  <Image url="@../../../../images-HappyBuddies/toys.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="36.0" />
+         </font></Button>
+      <Button contentDisplay="TOP" layoutX="242.0" layoutY="183.0" mnemonicParsing="false" prefHeight="350.0" prefWidth="500.0" style="-fx-background-color: #ffffff;" text="Accessories" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="100.0">
+         <graphic>
+            <ImageView fitHeight="280.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images-HappyBuddies/accesories.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="36.0" />
+         </font></Button>
    </children>
 </AnchorPane>

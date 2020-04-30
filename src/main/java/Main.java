@@ -14,7 +14,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CategoriesPage.fxml"));
         primaryStage.setTitle("Registration Example");
-        primaryStage.setScene(new Scene(root, 600,400));
+        primaryStage.setScene(new Scene(root, 1500,900));
         primaryStage.show();
     }
 }
