@@ -24,13 +24,12 @@ import java.util.List;
 import java.util.Objects;
 
     public class ItemService {
-        private static List<Item> toys=new ArrayList<>();
-        private static List<Item> accessories=new ArrayList<>();
-        private static List<Item> food=new ArrayList<>();
-        private static List<Item> pets=new ArrayList<>();
+        private static List<Item> toys = new ArrayList<>();
+        private static List<Item> accessories = new ArrayList<>();
+        private static List<Item> food = new ArrayList<>();
+        private static List<Item> pets = new ArrayList<>();
         private static List<Item> items;
         private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "Item.json");
-
 
 
         public static void loadItemFromFile() throws IOException {
@@ -44,35 +43,32 @@ import java.util.Objects;
             items = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Item>>() {
             });
         }
-     public static void divide() {
-         for (Item item : items) {
-             if(item.getCategorie().equals("toy"))
-                 toys.add(item);
-             else
-                 if(item.getCategorie().equals("pet"))
-                         pets.add(item);
-               else
-                   if(item.getCategorie().equals("accessory"))
-                       accessories.add(item);
-                   else
-                       if(item.getCategorie().equals("food"))
-                               food.add(item);
-         }
-     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public static void divide() {
+            for (Item item : items) {
+                if (item.getCategorie().equals("toy"))
+                    toys.add(item);
+                else if (item.getCategorie().equals("pet"))
+                    pets.add(item);
+                else if (item.getCategorie().equals("accessory"))
+                    accessories.add(item);
+                else if (item.getCategorie().equals("food"))
+                    food.add(item);
+            }
+        }
     }
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
