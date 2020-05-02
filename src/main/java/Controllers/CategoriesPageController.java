@@ -13,11 +13,11 @@ import java.io.IOException;
 
 public class CategoriesPageController {
     @FXML
-    private Button pets;
+    private Button pet;
     @FXML
-    private Button toys;
+    private Button toy;
     @FXML
-    private Button accessories;
+    private Button accessory;
     @FXML
     private Button food;
 
@@ -34,10 +34,24 @@ public class CategoriesPageController {
     void gotoShopPage(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ShopPage.fxml"));
         Stage stage=new Stage();
-        stage.setTitle("Shop Page");
+        stage.setTitle("Categories Page");
         stage.setScene(new Scene(root, 1500,900));
         Stage stage1 = (Stage) food.getScene().getWindow();
         stage1.close();
+
+
+        if(((Button) event.getSource()).getId().equals("toy"))
+                ItemService.addItems("toy");
+            else
+                if(((Button) event.getSource()).getId().equals("food"))
+                ItemService.addItems("food");
+                else
+        if(((Button) event.getSource()).getId().equals("pet"))
+            ItemService.addItems("pet");
+             else
+        if(((Button) event.getSource()).getId().equals("accessory"))
+            ItemService.addItems("accessory");
+
 
 
         stage.show();

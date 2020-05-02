@@ -6,9 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controllers.ShopPageController"
-            prefHeight="900" prefWidth="1500">
-
+<AnchorPane prefHeight="900" prefWidth="1500" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ShopPageController">
+   <children>
+      <ScrollPane prefHeight="900.0" prefViewportHeight="200.0" prefViewportWidth="200.0" prefWidth="1050.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <TilePane fx:id="tilePane" prefHeight="900.0" prefWidth="1045.0" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="back" layoutX="1236.0" layoutY="42.0" mnemonicParsing="false" onAction="#gotocategories" text="back" />
+   </children>
 </AnchorPane>
