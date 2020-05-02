@@ -43,10 +43,15 @@
             <Font name="System Italic" size="24.0" />
          </font>
       </TextField>
-      <Button fx:id="register" layoutX="464.0" layoutY="729.0" mnemonicParsing="false" onAction="#onRegister" opacity="0.72" style="-fx-background-radius: 30; -fx-background-color: #911B3B;" text="Register" textAlignment="JUSTIFY" textFill="#c6aeae">
+      <Button fx:id="register" layoutX="464.0" layoutY="729.0" mnemonicParsing="false" onAction="#onRegister" opacity="0.72" style="-fx-background-radius: 30; -fx-background-color: #911B3B;" text="Register" textAlignment="JUSTIFY">
          <font>
             <Font name="System Italic" size="32.0" />
          </font>
       </Button>
+      <Text fx:id="errortext" layoutX="147.0" layoutY="780.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="JUSTIFY">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

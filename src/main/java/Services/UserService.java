@@ -47,7 +47,7 @@ public class UserService {
         persistUsers();
     }
 
-    private static void checkUsernameAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    public static void checkUsernameAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : users) {
             if (Objects.equals(username, user.getUsername())){
                 throw new UsernameAlreadyExistsException();
@@ -75,12 +75,11 @@ public class UserService {
         if (username.equals("") || password.equals("")||name.equals("")||email.equals("")||phone.equals("")) throw new EmptyFieldException();
     }
 
-    public static User activeUser(String username, String password) {
+    public static User activeUser(String username) {
 
 
         for (User user : users) {
             if (Objects.equals(username, user.getUsername())) {
-                if (Objects.equals(password, user.getPassword()))
                     return user;
             }
 
@@ -91,12 +90,12 @@ public class UserService {
 
 
     public static void checkLoginCredentials(String username, String password) throws LoginFail {
-
+        String pass=encodePassword(username,password);
         int sw = 0;
         for (User user : users) {
             if (Objects.equals(username, user.getUsername())) {
                 sw = 1;
-                if (!Objects.equals(password, user.getPassword()))
+                if (!Objects.equals(pass, user.getPassword()))
                     throw new LoginFail();
             }
         }
@@ -124,6 +123,8 @@ public class UserService {
         }
         return md;
     }
+
+
 }
 
 
