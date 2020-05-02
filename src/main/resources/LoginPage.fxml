@@ -15,17 +15,17 @@
             <Image url="@Images/stretched-1920-1080-902705.jpg" />
          </image>
       </ImageView>
-      <TextField alignment="CENTER" layoutX="77.0" layoutY="260.0" prefHeight="40.0" prefWidth="300.0" promptText="Username" style="-fx-background-radius: 10;">
+      <TextField fx:id="usernameField" alignment="CENTER" layoutX="77.0" layoutY="260.0" prefHeight="40.0" prefWidth="300.0" promptText="Username" style="-fx-background-radius: 10;">
          <font>
             <Font name="System Italic" size="28.0" />
          </font>
       </TextField>
-      <PasswordField alignment="CENTER" layoutX="77.0" layoutY="356.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-radius: 10;">
+      <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="77.0" layoutY="356.0" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-radius: 10;">
          <font>
             <Font name="System Italic" size="28.0" />
          </font>
       </PasswordField>
-      <Button layoutX="261.0" layoutY="460.0" mnemonicParsing="false" style="-fx-background-radius: 30; -fx-background-color: 6FF4FE;" text="Login" textAlignment="JUSTIFY">
+      <Button fx:id="login" layoutX="261.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToCategoryPage" style="-fx-background-radius: 30; -fx-background-color: 6FF4FE;" text="Login" textAlignment="JUSTIFY">
          <font>
             <Font name="System Italic" size="31.0" />
          </font>
@@ -35,7 +35,7 @@
             <Font name="Curlz MT" size="91.0" />
          </font>
       </Text>
-      <Button contentDisplay="CENTER" layoutX="77.0" layoutY="460.0" mnemonicParsing="false" style="-fx-background-radius: 30; -fx-background-color: 6FF4FE;" text="Register" textAlignment="JUSTIFY">
+      <Button fx:id="register" contentDisplay="CENTER" layoutX="77.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToRegisterPage" style="-fx-background-radius: 30; -fx-background-color: 6FF4FE;" text="Register" textAlignment="JUSTIFY">
          <font>
             <Font name="System Italic" size="31.0" />
          </font>

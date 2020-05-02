@@ -32,13 +32,23 @@ public class CategoriesPageController {
 
     @FXML
     void gotoShopPage(ActionEvent event) throws IOException {
+
+        //if administratotr got o adimistrator page
+        Parent rootad = FXMLLoader.load(getClass().getClassLoader().getResource("AdministratorPage.fxml"));
+        Stage stagead=new Stage();
+        stagead.setTitle("Administrator Page");
+        stagead.setScene(new Scene(rootad, 1500,900));
+        Stage stage1ad = (Stage) food.getScene().getWindow();
+        stage1ad.close();
+
+
+        //if custome go to shop page
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ShopPage.fxml"));
         Stage stage=new Stage();
-        stage.setTitle("Categories Page");
+        stage.setTitle("Shop Page");
         stage.setScene(new Scene(root, 1500,900));
         Stage stage1 = (Stage) food.getScene().getWindow();
         stage1.close();
-
 
         if(((Button) event.getSource()).getId().equals("toy"))
                 ItemService.addItems("toy");
