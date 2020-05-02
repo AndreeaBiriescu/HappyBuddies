@@ -1,6 +1,7 @@
 package Controllers;
 
 import Exceptions.LoginFail;
+import Model.User;
 import Services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javax.jws.soap.SOAPBinding;
 import java.io.IOException;
 
 public class LoginPageController {
@@ -30,12 +32,13 @@ public class LoginPageController {
     private Button register;
     @FXML
     private Text error;
+    private static User user;
     @FXML
     void goToCategoryPage(ActionEvent event) throws IOException {
         try {
             UserService.checkEmptyField(usernameField.getText(),passwordField.getText());
             UserService.checkLoginCredentials(usernameField.getText(),passwordField.getText());
-
+            user=UserService.activeUser(usernameField.getText(),passwordField.getText());
             CategoriesPageController.setUsername(usernameField.getText());
 
             Stage stage = (Stage) login.getScene().getWindow();
@@ -66,4 +69,7 @@ public class LoginPageController {
         stage1.show();
     }
 
+    public static User getUser() {
+        return user;
+    }
 }

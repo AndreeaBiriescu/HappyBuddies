@@ -41,6 +41,20 @@ public class UserService {
         if (username.equals("") || password.equals("")) throw new EmptyFieldException();
     }
 
+    public static User activeUser(String username, String password) {
+
+
+        for (User user : users) {
+            if (Objects.equals(username, user.getUsername())) {
+                if (Objects.equals(password, user.getPassword()))
+                    return user;
+            }
+
+
+        }
+        return null;
+    }
+
 
     public static void checkLoginCredentials(String username, String password) throws LoginFail {
 
@@ -53,7 +67,9 @@ public class UserService {
             }
         }
         if (sw == 0) throw new LoginFail();
+
     }
+
 
 }
 

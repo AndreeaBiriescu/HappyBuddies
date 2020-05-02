@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.User;
 import Services.ItemService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,14 +21,18 @@ public class CategoriesPageController {
     private Button accessory;
     @FXML
     private Button food;
-    private static String username;
+    private User user;
 
     public static void setUsername(String username) {
-        CategoriesPageController.username = username;
+
+    }
+    public void setName(String name)
+    {
+
     }
 
     @FXML
-   private void initialize(){
+    private void initialize(){
         try {
             ItemService.loadItemFromFile();
         } catch (IOException e) {
@@ -37,14 +42,17 @@ public class CategoriesPageController {
 
     @FXML
     void gotoShopPage(ActionEvent event) throws IOException {
+        user=LoginPageController.getUser();
 
-        if(username.equals("admin")) {
+        if(user.getUsername().equals("admin")) {
+            System.out.println("*");
             Parent rootad = FXMLLoader.load(getClass().getClassLoader().getResource("AdministratorPage.fxml"));
             Stage stagead = new Stage();
             stagead.setTitle("Administrator Page");
             stagead.setScene(new Scene(rootad, 1500, 900));
             Stage stage1ad = (Stage) food.getScene().getWindow();
             stage1ad.close();
+            stagead.show();
         }
         else {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ShopPage.fxml"));
