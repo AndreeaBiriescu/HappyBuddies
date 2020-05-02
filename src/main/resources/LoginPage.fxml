@@ -45,5 +45,10 @@
             <Font name="Curlz MT" size="75.0" />
          </font>
       </Text>
+      <Text fx:id="error" layoutX="111.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="JUSTIFY" wrappingWidth="232.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
