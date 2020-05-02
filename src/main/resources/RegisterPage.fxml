@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controllers.RegisterPageController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegisterPageController">
+   <children>
+      <ImageView fitHeight="900.0" fitWidth="1500.0" layoutX="81.0" layoutY="-29.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Images/stretched-1920-1080-877960.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="usernameField" layoutX="79.0" layoutY="217.0" opacity="0.51" promptText="Usename" style="-fx-background-radius: 30; -fx-background-color: #911B3B;">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font></TextField>
+      <Text layoutX="77.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Curlz MT" size="96.0" />
+         </font></Text>
+      <PasswordField fx:id="passwordField" layoutX="77.0" layoutY="322.0" opacity="0.51" promptText="Password" style="-fx-background-radius: 30; -fx-background-color: #911B3B;">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="nameField" layoutX="79.0" layoutY="425.0" opacity="0.51" promptText="Full name" style="-fx-background-radius: 30; -fx-background-color: #911B3B;">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="emailField" layoutX="78.0" layoutY="533.0" opacity="0.51" promptText="E-mail address" style="-fx-background-radius: 30; -fx-background-color: #911B3B;">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="phoneField" layoutX="77.0" layoutY="636.0" opacity="0.51" promptText="Phone number" style="-fx-background-radius: 30; -fx-background-color: #911B3B;">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font>
+      </TextField>
+      <Button fx:id="register" layoutX="464.0" layoutY="729.0" mnemonicParsing="false" onAction="#onRegister" opacity="0.72" style="-fx-background-radius: 30; -fx-background-color: #911B3B;" text="Register" textAlignment="JUSTIFY" textFill="#c6aeae">
+         <font>
+            <Font name="System Italic" size="32.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
