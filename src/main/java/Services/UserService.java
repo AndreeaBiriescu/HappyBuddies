@@ -27,7 +27,7 @@ public class UserService {
     public static void loadUsersFromFile() throws IOException {
 
         if (!Files.exists(USERS_PATH)) {
-            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
+            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("User.json"), USERS_PATH.toFile());
         }
 
         ObjectMapper objectMapper = new ObjectMapper();

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -32,15 +33,20 @@ public class LoginPageController {
     @FXML
     void goToCategoryPage(ActionEvent event) throws IOException {
         try {
-            UserService.checkLoginCredentials(usernameField.getText(),passwordField.getText());
             UserService.checkEmptyField(usernameField.getText(),passwordField.getText());
+            UserService.checkLoginCredentials(usernameField.getText(),passwordField.getText());
+
+            CategoriesPageController.setUsername(usernameField.getText());
+
             Stage stage = (Stage) login.getScene().getWindow();
-            stage.close();
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CategoryPage.fxml"));
+
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("CategoriesPage.fxml"));
             Stage stage1=new Stage();
             stage1.setTitle("Category Page");
+            stage1.setScene(new Scene(root, 1500,900));
 
 
+            stage.close();
             stage1.show();
         } catch (Exception e) {
             error.setText(e.getMessage());
@@ -55,7 +61,7 @@ public class LoginPageController {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("RegisterPage.fxml"));
         Stage stage1=new Stage();
         stage1.setTitle("Register Page");
-
+        stage1.setScene(new Scene(root, 1500,900));
 
         stage1.show();
     }

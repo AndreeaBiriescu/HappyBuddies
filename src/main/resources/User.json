@@ -1,0 +1,24 @@
+[
+  {
+    "username" : "admin",
+    "password" : "admin",
+    "name" : "Admin",
+    "email": "admin@yahoo.com",
+    "phone": "0755423659"
+  },
+  {
+    "username" : "ana",
+    "password" : "aremere",
+    "name" : "Ana",
+    "email": "anaaremere@yahoo.com",
+    "phone": "0755423659"
+  },
+
+  {
+    "username" : "ion",
+    "password" : "ecelmaitare",
+    "name" : "Ion",
+    "email": "viorel@yahoo.com",
+    "phone": "0755000659"
+  }
+]

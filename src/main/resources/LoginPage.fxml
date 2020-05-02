@@ -25,7 +25,7 @@
             <Font name="System Italic" size="28.0" />
          </font>
       </PasswordField>
-      <Button fx:id="login" layoutX="261.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToCategoryPage" style="-fx-background-radius: 30; -fx-background-color: 6FF4FE;" text="Login" textAlignment="JUSTIFY">
+      <Button fx:id="login" layoutX="261.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToCategoryPage" style="-fx-background-radius: 30; " text="Login" textAlignment="JUSTIFY">
          <font>
             <Font name="System Italic" size="31.0" />
          </font>
@@ -35,7 +35,7 @@
             <Font name="Curlz MT" size="91.0" />
          </font>
       </Text>
-      <Button fx:id="register" contentDisplay="CENTER" layoutX="77.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToRegisterPage" style="-fx-background-radius: 30; -fx-background-color: 6FF4FE;" text="Register" textAlignment="JUSTIFY">
+      <Button fx:id="register" contentDisplay="CENTER" layoutX="77.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToRegisterPage" style="-fx-background-radius: 30; " text="Register" textAlignment="JUSTIFY">
          <font>
             <Font name="System Italic" size="31.0" />
          </font>

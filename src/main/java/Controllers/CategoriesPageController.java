@@ -20,6 +20,11 @@ public class CategoriesPageController {
     private Button accessory;
     @FXML
     private Button food;
+    private static String username;
+
+    public static void setUsername(String username) {
+        CategoriesPageController.username = username;
+    }
 
     @FXML
    private void initialize(){
@@ -33,37 +38,34 @@ public class CategoriesPageController {
     @FXML
     void gotoShopPage(ActionEvent event) throws IOException {
 
-        //if administratotr got o adimistrator page
-        Parent rootad = FXMLLoader.load(getClass().getClassLoader().getResource("AdministratorPage.fxml"));
-        Stage stagead=new Stage();
-        stagead.setTitle("Administrator Page");
-        stagead.setScene(new Scene(rootad, 1500,900));
-        Stage stage1ad = (Stage) food.getScene().getWindow();
-        stage1ad.close();
+        if(username.equals("admin")) {
+            Parent rootad = FXMLLoader.load(getClass().getClassLoader().getResource("AdministratorPage.fxml"));
+            Stage stagead = new Stage();
+            stagead.setTitle("Administrator Page");
+            stagead.setScene(new Scene(rootad, 1500, 900));
+            Stage stage1ad = (Stage) food.getScene().getWindow();
+            stage1ad.close();
+        }
+        else {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ShopPage.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Shop Page");
+            stage.setScene(new Scene(root, 1500, 900));
+            Stage stage1 = (Stage) food.getScene().getWindow();
+            stage1.close();
 
 
-        //if custome go to shop page
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ShopPage.fxml"));
-        Stage stage=new Stage();
-        stage.setTitle("Shop Page");
-        stage.setScene(new Scene(root, 1500,900));
-        Stage stage1 = (Stage) food.getScene().getWindow();
-        stage1.close();
-
-        if(((Button) event.getSource()).getId().equals("toy"))
+            if (((Button) event.getSource()).getId().equals("toy"))
                 ItemService.addItems("toy");
-            else
-                if(((Button) event.getSource()).getId().equals("food"))
+            else if (((Button) event.getSource()).getId().equals("food"))
                 ItemService.addItems("food");
-                else
-        if(((Button) event.getSource()).getId().equals("pet"))
-            ItemService.addItems("pet");
-             else
-        if(((Button) event.getSource()).getId().equals("accessory"))
-            ItemService.addItems("accessory");
+            else if (((Button) event.getSource()).getId().equals("pet"))
+                ItemService.addItems("pet");
+            else if (((Button) event.getSource()).getId().equals("accessory"))
+                ItemService.addItems("accessory");
 
 
-
-        stage.show();
+            stage.show();
+        }
     }
 }
