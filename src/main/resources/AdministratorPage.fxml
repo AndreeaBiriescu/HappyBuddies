@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controllers.AdministratorPageController"
-            prefHeight="900.0" prefWidth="1500.0">
-
+<AnchorPane prefHeight="900.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdministratorPageController">
+   <children>
+      <ScrollPane layoutX="100.0" layoutY="68.0" prefHeight="900.0" prefViewportHeight="200.0" prefViewportWidth="200.0" prefWidth="1050.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <TilePane fx:id="tilepane" layoutX="100.0" layoutY="68.0" prefHeight="900.0" prefWidth="1050.0" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="Back" layoutX="1368.0" layoutY="29.0" mnemonicParsing="false" onAction="#gotocategoriespage" text="back">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Button fx:id="additem" layoutX="1371.0" layoutY="112.0" mnemonicParsing="false" onAction="#gotoadditempage" text="Add">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

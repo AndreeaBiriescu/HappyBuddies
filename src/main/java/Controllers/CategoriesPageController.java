@@ -51,6 +51,15 @@ public class CategoriesPageController {
             stagead.setScene(new Scene(rootad, 1500, 900));
             Stage stage1ad = (Stage) food.getScene().getWindow();
             stage1ad.close();
+            if (((Button) event.getSource()).getId().equals("toy"))
+                ItemService.addItemsAdmin("toy");
+            else if (((Button) event.getSource()).getId().equals("food"))
+                ItemService.addItemsAdmin("food");
+            else if (((Button) event.getSource()).getId().equals("pet"))
+                ItemService.addItemsAdmin("pet");
+            else if (((Button) event.getSource()).getId().equals("accessory"))
+                ItemService.addItemsAdmin("accessory");
+
             stagead.show();
         }
         else {
