@@ -58,6 +58,7 @@ public class AdministratorPageController {
 
 
     public TilePane getTilepane() {
+        tilepane.getChildren().clear();
         return tilepane;
     }
 }

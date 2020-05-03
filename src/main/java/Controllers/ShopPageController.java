@@ -24,6 +24,7 @@ public class ShopPageController {
     }
 
     public TilePane getTilePane() {
+        tilePane.getChildren().clear();
         return tilePane;
     }
 

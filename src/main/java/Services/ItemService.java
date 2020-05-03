@@ -48,6 +48,7 @@ import java.util.Objects;
         private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "Item.json");
         private static ShopPageController spc;
         private static AdministratorPageController apc;
+        private  static String categorie;
 
 
         public static void loadItemFromFile() throws IOException {
@@ -62,7 +63,7 @@ import java.util.Objects;
             });
             divide();
         }
-        public static void addItem(String nume, int pret, int cantitate, String descriere, String categorie, String imagine) throws Exception {
+        public static void addItem(String nume, int pret, int cantitate, String descriere, String imagine) throws Exception {
 
             checkEmptyField1(nume,pret,cantitate,descriere,categorie,imagine);
 
@@ -107,6 +108,7 @@ import java.util.Objects;
             apc= u;
         }
         public static void addItems(String cath){
+
             if(cath.equals("toy"))
                 for(Item item : toys)
                     spc.getTilePane().getChildren().add(addItem(item));
@@ -188,21 +190,30 @@ import java.util.Objects;
             return pane;
         }
         public static void addItemsAdmin(String cath){
-            if(cath.equals("toy"))
-                for(Item item : toys)
+
+            if(cath.equals("toy")) {
+                for (Item item : toys)
                     apc.getTilepane().getChildren().add(addItemAdmin(item));
+                    categorie="toy";
+            }
             else
-            if(cath.equals("pet"))
-                for(Item item : pets)
+            if(cath.equals("pet")) {
+                for (Item item : pets)
                     apc.getTilepane().getChildren().add(addItemAdmin(item));
+                    categorie="pet";
+            }
             else
-            if(cath.equals("food"))
-                for(Item item : food)
+            if(cath.equals("food")) {
+                for (Item item : food)
                     apc.getTilepane().getChildren().add(addItemAdmin(item));
+                categorie = "food";
+            }
             else
-            if(cath.equals("accessory"))
-                for(Item item : accessories)
+            if(cath.equals("accessory")) {
+                for (Item item : accessories)
                     apc.getTilepane().getChildren().add(addItemAdmin(item));
+                categorie = "accessory";
+            }
 
         }
         private static GridPane addItemAdmin(Item item) {
