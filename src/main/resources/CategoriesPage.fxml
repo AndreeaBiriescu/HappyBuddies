@@ -61,6 +61,5 @@
          <font>
             <Font size="36.0" />
          </font></Button>
-      <TextArea layoutX="600.0" layoutY="327.0" prefHeight="200.0" prefWidth="255.0" text="sadfasdfasfsafasfasdfadadfadfsadfasd asdfa sdasd fasd asd asd " wrapText="true" />
    </children>
 </AnchorPane>

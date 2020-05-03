@@ -2,7 +2,10 @@ package Services;
 
 
 import Controllers.ShopPageController;
+import Exceptions.CouldNotWriteUsersException;
+import Exceptions.EmptyFieldException;
 import Model.Item;
+import Model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -56,6 +59,30 @@ import java.util.Objects;
             items = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Item>>() {
             });
             divide();
+        }
+        public static void addItem(String nume, int pret, int cantitate, String descriere, String categorie, String imagine) throws Exception {
+
+            checkEmptyField1(nume,pret,cantitate,descriere,categorie,imagine);
+
+            items.add(new Item(nume, pret,cantitate,descriere,categorie,imagine));
+            persistItems();
+        }
+
+        private static void persistItems() {
+            try {
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), items);
+
+        } catch (IOException e) {
+            throw new CouldNotWriteUsersException();
+        }
+
+
+        }
+
+        private static void checkEmptyField1(String nume, Integer pret, Integer cantitate, String descriere, String categorie, String imagine) throws EmptyFieldException {
+            if (nume.equals("") || pret==null || descriere.equals("") || categorie.equals("") || cantitate==null || imagine.equals("")) throw new EmptyFieldException();
         }
 
         public static void divide() {
