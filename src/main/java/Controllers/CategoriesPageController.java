@@ -43,7 +43,6 @@ public class CategoriesPageController {
     @FXML
     void gotoShopPage(ActionEvent event) throws IOException {
         user=LoginPageController.getUser();
-
         if(user.getUsername().equals("admin")) {
             System.out.println("*");
             Parent rootad = FXMLLoader.load(getClass().getClassLoader().getResource("AdministratorPage.fxml"));
@@ -55,6 +54,7 @@ public class CategoriesPageController {
             stagead.show();
         }
         else {
+
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ShopPage.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Shop Page");

@@ -38,7 +38,7 @@ public class LoginPageController {
         try {
             UserService.checkEmptyField(usernameField.getText(),passwordField.getText());
             UserService.checkLoginCredentials(usernameField.getText(),passwordField.getText());
-            user=UserService.activeUser(usernameField.getText(),passwordField.getText());
+            user=UserService.activeUser(usernameField.getText());
             CategoriesPageController.setUsername(usernameField.getText());
 
             Stage stage = (Stage) login.getScene().getWindow();
