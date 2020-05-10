@@ -1,0 +1,58 @@
+[
+  {
+    "nume" : "Mancare Pisi",
+    "pret": "10",
+    "cantitate": "20",
+    "descriere":"Ceva descrere pt mancare pisi",
+    "categorie": "food",
+    "imagine": "https://media2.s-nbcnews.com/i/newscms/2019_10/1414999/41q-pr410-l_3f64f610d6799bf4f9c5a4186ebf922f.jpg"
+  },
+  {
+    "nume" : "Mancare Caine",
+    "pret": "110",
+    "cantitate": "220",
+    "descriere":"Ceva descrere pt mancare caine",
+    "categorie": "food",
+    "imagine": "https://www.drools.in/media/catalog/product/cache/image/700x560/e9c3970ab036de70892d86c6d221abfe/8/9/8906043144157-1.jpg"
+  },
+  {
+    "nume" : "Mancare Pisi",
+    "pret": "10",
+    "cantitate": "20",
+    "descriere":"Ceva descrere pt mancare pisi",
+    "categorie": "food",
+    "imagine": "https://media2.s-nbcnews.com/i/newscms/2019_10/1414999/41q-pr410-l_3f64f610d6799bf4f9c5a4186ebf922f.jpg"
+  },
+  {
+    "nume" : "Mancare Caine",
+    "pret": "110",
+    "cantitate": "220",
+    "descriere":"Ceva descrere pt mancare caine",
+    "categorie": "food",
+    "imagine": "https://www.drools.in/media/catalog/product/cache/image/700x560/e9c3970ab036de70892d86c6d221abfe/8/9/8906043144157-1.jpg"
+  },
+  {
+    "nume" : "Toy1",
+    "pret": "10",
+    "cantitate": "20",
+    "descriere":"Ceva descrere pt toyy",
+    "categorie": "toy",
+    "imagine": "https://sc02.alicdn.com/kf/HTB1FWIxc6bguuRkHFrdq6z.LFXa2.jpg"
+  },
+  {
+    "nume" : "Toy1",
+    "pret": "10",
+    "cantitate": "20",
+    "descriere":"Ceva descrere pt toyyyyyyyyyyyyyyyyyy",
+    "categorie": "toy",
+    "imagine": "https://sc02.alicdn.com/kf/HTB1FWIxc6bguuRkHFrdq6z.LFXa2.jpg"
+  },
+  {
+    "nume" : "Toy1",
+    "pret": "10",
+    "cantitate": "20",
+    "descriere":"Ceva descrere pt toyy for a cute lovely and fluffy dog",
+    "categorie": "toy",
+    "imagine": "https://sc02.alicdn.com/kf/HTB1FWIxc6bguuRkHFrdq6z.LFXa2.jpg"
+  }
+]
