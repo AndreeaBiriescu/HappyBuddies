@@ -1,8 +1,12 @@
 package Services;
 
 
+import Controllers.AdministratorPageController;
 import Controllers.ShopPageController;
+import Exceptions.CouldNotWriteUsersException;
+import Exceptions.EmptyFieldException;
 import Model.Item;
+import Model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -43,6 +47,8 @@ import java.util.Objects;
         private static List<Item> items;
         private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "Item.json");
         private static ShopPageController spc;
+        private static AdministratorPageController apc;
+        private  static String categorie;
 
 
         public static void loadItemFromFile() throws IOException {
@@ -56,6 +62,30 @@ import java.util.Objects;
             items = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Item>>() {
             });
             divide();
+        }
+        public static void addItem(String nume, int pret, int cantitate, String descriere, String imagine) throws Exception {
+
+            checkEmptyField1(nume,pret,cantitate,descriere,categorie,imagine);
+
+            items.add(new Item(nume, pret,cantitate,descriere,categorie,imagine));
+            persistItems();
+        }
+
+        private static void persistItems() {
+            try {
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), items);
+
+        } catch (IOException e) {
+            throw new CouldNotWriteUsersException();
+        }
+
+
+        }
+
+        private static void checkEmptyField1(String nume, Integer pret, Integer cantitate, String descriere, String categorie, String imagine) throws EmptyFieldException {
+            if (nume.equals("") || pret==null || descriere.equals("") || categorie.equals("") || cantitate==null || imagine.equals("")) throw new EmptyFieldException();
         }
 
         public static void divide() {
@@ -74,8 +104,11 @@ import java.util.Objects;
         public static void injectmp(ShopPageController u) {
             spc= u;
         }
-
+        public static void injectmp(AdministratorPageController u) {
+            apc= u;
+        }
         public static void addItems(String cath){
+
             if(cath.equals("toy"))
                 for(Item item : toys)
                     spc.getTilePane().getChildren().add(addItem(item));
@@ -156,7 +189,79 @@ import java.util.Objects;
 
             return pane;
         }
+        public static void addItemsAdmin(String cath){
 
+            if(cath.equals("toy")) {
+                for (Item item : toys)
+                    apc.getTilepane().getChildren().add(addItemAdmin(item));
+                    categorie="toy";
+            }
+            else
+            if(cath.equals("pet")) {
+                for (Item item : pets)
+                    apc.getTilepane().getChildren().add(addItemAdmin(item));
+                    categorie="pet";
+            }
+            else
+            if(cath.equals("food")) {
+                for (Item item : food)
+                    apc.getTilepane().getChildren().add(addItemAdmin(item));
+                categorie = "food";
+            }
+            else
+            if(cath.equals("accessory")) {
+                for (Item item : accessories)
+                    apc.getTilepane().getChildren().add(addItemAdmin(item));
+                categorie = "accessory";
+            }
+
+        }
+        private static GridPane addItemAdmin(Item item) {
+            GridPane pane = new GridPane();
+            pane.setPrefWidth(1050);
+            pane.setPrefHeight(370);
+            pane.setStyle("-fx-background-color: white;");
+
+            Image image = new Image(item.getImagine());
+            ImageView imageView = new ImageView(image);
+            imageView.setFitHeight(350);
+            imageView.setFitWidth(250);
+
+
+            Label descr = new Label(item.getDescriere());
+            descr.setWrapText(true);
+            descr.setPrefWidth(600);
+            descr.setPrefHeight(250);
+            descr.setFont(Font.font(24));
+            descr.setAlignment(Pos.TOP_LEFT);
+
+
+            Button delete = new Button("delete");
+            delete.setPrefWidth(100);
+            delete.setPrefHeight(70);
+            delete.setFont(Font.font(24));
+
+            Button edit = new Button("edit");
+            edit.setPrefWidth(100);
+            edit.setPrefHeight(70);
+            edit.setFont(Font.font(24));
+
+            pane.setHgap(10);
+
+
+            pane.setAlignment(Pos.BASELINE_LEFT);
+            pane.add(imageView, 0, 0, 1, 4);
+            pane.add(descr, 1, 0, 1, 4);
+
+            pane.add(edit, 2, 1, 1, 1);
+            pane.add(delete, 2, 2, 1, 1);
+
+
+
+
+            return pane;
+
+        }
 
     }
 
