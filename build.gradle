@@ -14,7 +14,7 @@ jar{
     manifest {
         attributes'Main-Class': 'Main'
     }
-    archiveName='Cinema.jar'
+    archiveName='HappyBuddies.jar'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }
 dependencies {
