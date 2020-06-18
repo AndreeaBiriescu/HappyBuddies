@@ -5,6 +5,7 @@ import Controllers.AdministratorPageController;
 import Controllers.ShopPageController;
 import Exceptions.CouldNotWriteUsersException;
 import Exceptions.EmptyFieldException;
+import Exceptions.unavailableQuantityException;
 import Model.Item;
 import Model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -22,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -169,6 +171,17 @@ import java.util.Objects;
             buy.setPrefWidth(100);
             buy.setPrefHeight(70);
             buy.setFont(Font.font(24));
+            buy.setOnAction(e -> {
+                try {
+                    setPopup(item.getCantitate(), Integer.parseInt(cwish.getText()));
+                } catch (unavailableQuantityException e2) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Unavilable Quantity");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Sorry! Unavailable quantity!");
+                    alert.showAndWait();
+                }
+            });
 
             pane.setHgap(10);
 
@@ -189,7 +202,21 @@ import java.util.Objects;
 
             return pane;
         }
-        public static void addItemsAdmin(String cath){
+
+             private static void setPopup(int quantity,int cwish) throws unavailableQuantityException
+        {
+            if(cwish>quantity) {
+
+                throw new unavailableQuantityException();
+
+            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Aavilable Quantity");
+            alert.setHeaderText(null);
+            alert.setContentText("Thank you for shopping!");
+            alert.showAndWait();
+        } // mai e nevoie sa scad cantitatea dupa ce s-a cumparat itemul->> in editare
+             public static void addItemsAdmin(String cath){
 
             if(cath.equals("toy")) {
                 for (Item item : toys)
@@ -216,6 +243,7 @@ import java.util.Objects;
             }
 
         }
+
         private static GridPane addItemAdmin(Item item) {
             GridPane pane = new GridPane();
             pane.setPrefWidth(1050);
@@ -264,18 +292,3 @@ import java.util.Objects;
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
