@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SkinBase;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
@@ -21,6 +22,8 @@ public class AdministratorPageController {
     private TilePane tilepane;
      @FXML
      private Button additem;
+    @FXML
+    private ScrollPane scrollbar;
 
      @FXML
      private Button Back;
@@ -28,6 +31,8 @@ public class AdministratorPageController {
     @FXML
     private void initialize(){
         ItemService.injectmp(this);
+        scrollbar.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollbar.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
 
     @FXML
