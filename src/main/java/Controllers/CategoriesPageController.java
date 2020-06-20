@@ -44,7 +44,6 @@ public class CategoriesPageController {
     void gotoShopPage(ActionEvent event) throws IOException {
         user=LoginPageController.getUser();
         if(user.getUsername().equals("admin")) {
-            System.out.println("*");
             Parent rootad = FXMLLoader.load(getClass().getClassLoader().getResource("AdministratorPage.fxml"));
             Stage stagead = new Stage();
             stagead.setTitle("Administrator Page");
