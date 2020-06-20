@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SkinBase;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
@@ -21,13 +22,18 @@ public class AdministratorPageController {
     private TilePane tilepane;
      @FXML
      private Button additem;
+    @FXML
+    private ScrollPane scrollbar;
 
      @FXML
      private Button Back;
 
     @FXML
     private void initialize(){
+        tilepane.setStyle("-fx-background-color: #C0C0C0;");
         ItemService.injectmp(this);
+        scrollbar.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollbar.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
 
     @FXML
@@ -58,7 +64,7 @@ public class AdministratorPageController {
 
 
     public TilePane getTilepane() {
-        tilepane.getChildren().clear();
+      //  tilepane.getChildren().clear();
         return tilepane;
     }
 }
