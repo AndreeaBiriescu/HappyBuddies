@@ -231,9 +231,10 @@ import java.util.Objects;
             }
             else
             if(cath.equals("food")) {
-                for (Item item : food)
+                for (Item item : food) {
                     apc.getTilepane().getChildren().add(addItemAdmin(item));
-                categorie = "food";
+                }
+                    categorie = "food";
             }
             else
             if(cath.equals("accessory")) {

@@ -30,6 +30,7 @@ public class AdministratorPageController {
 
     @FXML
     private void initialize(){
+        tilepane.setStyle("-fx-background-color: #C0C0C0;");
         ItemService.injectmp(this);
         scrollbar.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollbar.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -63,7 +64,7 @@ public class AdministratorPageController {
 
 
     public TilePane getTilepane() {
-        tilepane.getChildren().clear();
+      //  tilepane.getChildren().clear();
         return tilepane;
     }
 }
