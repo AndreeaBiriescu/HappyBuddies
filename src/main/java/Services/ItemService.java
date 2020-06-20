@@ -46,8 +46,8 @@ import java.util.Objects;
         private static List<Item> accessories = new ArrayList<>();
         private static List<Item> food = new ArrayList<>();
         private static List<Item> pets = new ArrayList<>();
-        private static List<Item> items;
-        private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "Item.json");
+        public static List<Item> items;
+        public static final Path USERS_PATH = FileSystemService.getPathToFile("config", "Item.json");
         private static ShopPageController spc;
         private static AdministratorPageController apc;
         private  static String categorie;
@@ -86,7 +86,7 @@ import java.util.Objects;
 
         }
 
-        private static void checkEmptyField1(String nume, Integer pret, Integer cantitate, String descriere, String categorie, String imagine) throws EmptyFieldException {
+        public static void checkEmptyField1(String nume, Integer pret, Integer cantitate, String descriere, String categorie, String imagine) throws EmptyFieldException {
             if (nume.equals("") || pret==null || descriere.equals("") || categorie.equals("") || cantitate==null || imagine.equals("")) throw new EmptyFieldException();
         }
 
@@ -285,10 +285,7 @@ import java.util.Objects;
             pane.add(edit, 2, 1, 1, 1);
             pane.add(delete, 2, 2, 1, 1);
 
-
-
-
-            return pane;
+                return pane;
 
         }
 

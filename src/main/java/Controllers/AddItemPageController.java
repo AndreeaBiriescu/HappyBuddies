@@ -16,22 +16,22 @@ import java.io.IOException;
 public class AddItemPageController {
 
     @FXML
-    private TextField imageField;
+    public TextField imageField;
 
     @FXML
-    private TextField priceField;
+    public TextField priceField;
 
     @FXML
-    private Button addField;
+    public Button addField;
 
     @FXML
-    private TextField nameField;
+    public TextField nameField;
 
     @FXML
-    private TextField descriptionField;
+    public TextField descriptionField;
 
     @FXML
-    private TextField quantityField;
+    public TextField quantityField;
 
     @FXML
     void addFunction(ActionEvent event) {
@@ -49,5 +49,4 @@ public class AddItemPageController {
             e.printStackTrace();
         }
     }
-
 }

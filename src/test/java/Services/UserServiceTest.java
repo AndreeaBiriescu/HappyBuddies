@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -20,15 +21,20 @@ import static org.junit.Assert.*;
 public class UserServiceTest extends ApplicationTest {
     @BeforeClass
     public static void setupClass() {
-        FileSystemService.APPLICATION_FOLDER = ".test-registration-example";
+        FileSystemService.APPLICATION_FOLDER = ".test-happybuddies";
         FileSystemService.initApplicationHomeDirIfNeeded();
     }
 
     @Before
     public void setUp() throws IOException {
-        FileUtils.cleanDirectory(FileSystemService.getPathToFile().toFile());
+        FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath().toFile());
     }
 
+    @Test
+    public void testCopyDefaultFileIfNotExists() throws Exception {
+        UserService.loadUsersFromFile();
+        assertTrue(Files.exists(UserService.USERS_PATH));
+    }
 
     @Test
     public void testLoadUsersFromFile() throws Exception {
@@ -40,7 +46,7 @@ public class UserServiceTest extends ApplicationTest {
     @Test
     public void testAddOneUser() throws Exception {
         UserService.loadUsersFromFile();
-        UserService.addUser("test", "testPass", "name", "email@yahoo.com","0756218953");
+        UserService.addUser("test", "testPass", "testName","testemail@yahoo.com","0751248953");
         assertNotNull(UserService.users);
         assertEquals(2, UserService.users.size());
     }
@@ -48,8 +54,8 @@ public class UserServiceTest extends ApplicationTest {
     @Test
     public void testAddTwoUsers() throws Exception {
         UserService.loadUsersFromFile();
-        UserService.addUser("test1", "testPass1", "name1", "email1@yahoo.com","0756523951");
-        UserService.addUser("test2", "testPass2", "name2", "email2@yahoo.com","0765215985");
+        UserService.addUser("test1", "testPass1", "testName1","testeameil1@yahoo.com","0741542895");
+        UserService.addUser("test2", "testPass2", "testName2","testeameil2@yahoo.com","0741451248");
         assertNotNull(UserService.users);
         assertEquals(3, UserService.users.size());
     }
@@ -57,7 +63,7 @@ public class UserServiceTest extends ApplicationTest {
     @Test(expected = UsernameAlreadyExistsException.class)
     public void testAddUserAlreadyExists() throws Exception {
         UserService.loadUsersFromFile();
-        UserService.addUser("test1", "testPass1", "name1", "email1@yahoo.com","0756523951");
+        UserService.addUser("test1", "testPass1", "testName1","testeameil1@yahoo.com","0741542895");
         assertNotNull(UserService.users);
         UserService.checkUsernameAlreadyExist("test1");
     }
@@ -65,7 +71,7 @@ public class UserServiceTest extends ApplicationTest {
     @Test
     public void testAddOneUserIsPersisted() throws Exception {
         UserService.loadUsersFromFile();
-        UserService.addUser("test", "testPass", "name", "email@yahoo.com","0756218953");
+        UserService.addUser("test", "testPass", "testName","testemail@yahoo.com","0751248953");
         List<User> users = new ObjectMapper().readValue(UserService.USERS_PATH.toFile(), new TypeReference<List<User>>() {
         });
         assertNotNull(users);
@@ -75,18 +81,12 @@ public class UserServiceTest extends ApplicationTest {
     @Test
     public void testAddTwoUserArePersisted() throws Exception {
         UserService.loadUsersFromFile();
-        UserService.addUser("test1", "testPass1", "name1", "email1@yahoo.com","0756523951");
-        UserService.addUser("test2", "testPass2", "name2", "email2@yahoo.com","0765215985");
+        UserService.addUser("test1", "testPass1", "testName1","testeameil1@yahoo.com","0741542895");
+        UserService.addUser("test2", "testPass2", "testName2","testeameil2@yahoo.com","0741451248");
         List<User> users = new ObjectMapper().readValue(UserService.USERS_PATH.toFile(), new TypeReference<List<User>>() {
         });
         assertNotNull(users);
         assertEquals(3, users.size());
-    }
-
-    @Test
-    public void testPasswordEncoding() {
-        assertNotEquals("testPass1", UserService.encodePassword("username1", "testPass1"));
-
     }
 
     @Test(expected = EmptyFieldException.class)
@@ -94,16 +94,24 @@ public class UserServiceTest extends ApplicationTest {
         UserService.checkEmptyField("","");
     }
 
-    @Test(expected = EmptyFieldException.class)
-    public void checkEmptyFieldTest1() throws EmptyFieldException{
-        UserService.checkEmptyField1("","","","","");
+    @Test
+    public void testPasswordEncoding() {
+        assertNotEquals("testPass1", UserService.encodePassword("username1", "testPass1"));
     }
 
+    @Test
+    public void checkLoginCredentials() throws Exception {
+        UserService.loadUsersFromFile();
+        UserService.addUser("test", "testPass", "testName","testemail@yahoo.com","0751248953");
+        assertNotNull(UserService.users);
+        UserService.checkLoginCredentials("test","testPass");
+    }
 
     @Test(expected = LoginFail.class)
-    public void checkLoginCredentialsTest() throws Exception {
+    public void checkLoginCredentials1() throws Exception {
         UserService.loadUsersFromFile();
-        UserService.addUser("test1", "testPass1", "name1", "email1@yahoo.com","0756523951");
-        UserService.checkLoginCredentials("test2","testPass1");
+        UserService.addUser("test", "testPass", "testName","testemail@yahoo.com","0751248953");
+        assertNotNull(UserService.users);
+        UserService.checkLoginCredentials("test","da");
     }
 }
