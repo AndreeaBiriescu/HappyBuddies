@@ -274,7 +274,9 @@ import java.util.Objects;
             edit.setPrefWidth(100);
             edit.setPrefHeight(70);
             edit.setFont(Font.font(24));
-
+            edit.setOnAction(e -> {
+                editItem(item,Integer.parseInt(apc.getCantField().getText()));
+            });
             pane.setHgap(10);
 
 
@@ -288,6 +290,17 @@ import java.util.Objects;
                 return pane;
 
         }
+
+        private static void editItem(Item itm,int newcant) {
+
+             for(Item item:items)
+                if(item.equals(itm))
+                {
+                  item.setCantitate(newcant);
+                }
+             persistItems();
+                 }
+
         private static void deleteItem(Item item){
             for(Item i:items)
               if(i.equals(item))

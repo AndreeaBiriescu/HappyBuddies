@@ -49,5 +49,6 @@
             <Image url="@Images/hamster-clipart-animated-9.gif" />
          </image>
       </ImageView>
+      <TextField fx:id="cantField" layoutX="1079.0" layoutY="222.0" />
    </children>
 </AnchorPane>

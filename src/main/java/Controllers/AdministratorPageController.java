@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SkinBase;
+import javafx.scene.control.*;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
@@ -17,7 +14,12 @@ import java.io.IOException;
 
 
 public class AdministratorPageController {
+    public TextField getCantField() {
+        return cantField;
+    }
 
+    @FXML
+    private TextField cantField;
     @FXML
     private TilePane tilepane;
      @FXML
