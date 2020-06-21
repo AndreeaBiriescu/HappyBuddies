@@ -174,6 +174,7 @@ import java.util.Objects;
             buy.setOnAction(e -> {
                 try {
                     setPopup(item.getCantitate(), Integer.parseInt(cwish.getText()));
+                    editItem(item,item.getCantitate()-Integer.parseInt(cwish.getText()));
                 } catch (unavailableQuantityException e2) {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Unavilable Quantity");
