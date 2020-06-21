@@ -269,7 +269,7 @@ import java.util.Objects;
             delete.setPrefWidth(100);
             delete.setPrefHeight(70);
             delete.setFont(Font.font(24));
-
+            delete.setOnAction(e -> deleteItem(item));
             Button edit = new Button("edit");
             edit.setPrefWidth(100);
             edit.setPrefHeight(70);
@@ -288,5 +288,12 @@ import java.util.Objects;
                 return pane;
 
         }
+        private static void deleteItem(Item item){
+            for(Item i:items)
+              if(i.equals(item))
+                items.remove(i);
+            persistItems();
+        }
+
 
     }
